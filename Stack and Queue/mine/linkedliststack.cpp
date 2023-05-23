@@ -7,9 +7,19 @@ struct Node
     Node* next;
 };
 
-Node* top = NULL;
+struct Stack
+{
+    Node* top = NULL;
 
-void Push(int data) {
+    void push(int data);
+    void pop();
+    bool isEmpty();
+    int peek();
+};
+
+
+
+void Stack::push(int data) {
     Node* temp = new Node;
 
     temp->data = data;
@@ -17,7 +27,7 @@ void Push(int data) {
     top = temp;
 }
 
-void Pop() {
+void Stack::pop() {
     Node *temp;
 
     if (top == NULL)
@@ -30,12 +40,12 @@ void Pop() {
     free(temp);
 }
 
-bool isEmpty()
+bool Stack::isEmpty()
 {
     return top == NULL;
 }
 
-int peek()
+int Stack::peek()
 {
     if (isEmpty())
     {
@@ -48,8 +58,10 @@ int peek()
 
 int main()
 {
-    Push(3);
-    Push(7);
-    Push(6);
-    peek();
+    Stack stack1;
+    stack1.push(3);
+    stack1.push(4);
+    stack1.push(5);
+    stack1.pop();
+    stack1.peek();
 }

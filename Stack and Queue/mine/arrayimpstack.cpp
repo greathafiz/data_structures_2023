@@ -40,7 +40,17 @@ void Stack::pop()
 
 int Stack::peek()
 {
-    return A[top];
+    if (isEmpty())
+    {
+        cout << "Stack is empty";
+        return 1;
+    }
+    else
+    {
+        int item = A[top];
+        cout << item;
+        return 0;
+    }
 }
 
 bool Stack::isEmpty()
@@ -57,7 +67,6 @@ void Stack::print()
         printf("%d ", A[i]);
     }
     printf("\n");
-    
 }
 
 int main()
@@ -69,4 +78,5 @@ int main()
     stack.push(8); stack.print();
     stack.push(9); stack.print();
     stack.pop(); stack.print();
+    stack.peek();
 }
